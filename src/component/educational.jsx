@@ -40,7 +40,7 @@ export default function Education() {
       </div>
 
       <div>
-        <label htmlFor="studyDate">Title of study: </label>
+        <label htmlFor="studyDate">Date of study: </label>
         <input
           type="text"
           id="studyDate"
