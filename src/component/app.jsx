@@ -5,11 +5,14 @@ import Experience from './experience';
 
 export default function App() {
   const [info, setInfo] = useState({ name: '', email: '', phone: '' });
-  const [edu, setEdu] = useState({
-    school: '',
-    studyTittle: '',
-    studyDate: '',
-  });
+  const [edus, setEdu] = useState([
+    {
+      id: 1,
+      school: '',
+      studyTittle: '',
+      studyDate: '',
+    },
+  ]);
   const [jobs, setJob] = useState([
     {
       id: 1,
@@ -27,7 +30,7 @@ export default function App() {
     return (
       <>
         <Infomation info={info} setInfo={setInfo} />
-        <Education edu={edu} setEdu={setEdu} />
+        <Education edus={edus} setEdu={setEdu} />
         <Experience jobs={jobs} setJob={setJob} />
         <button className="submit" onClick={() => setState('display')}>
           Submit
@@ -45,3 +48,6 @@ export default function App() {
     );
   }
 }
+
+
+// Creating a Display state for the application

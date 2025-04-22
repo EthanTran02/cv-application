@@ -1,6 +1,7 @@
 import { Fragment, useState } from 'react';
 
 export default function Experience({ jobs, setJob }) {
+
   function handleInput(e, id) {
     const { name, value } = e.target;
 
@@ -14,7 +15,6 @@ export default function Experience({ jobs, setJob }) {
       });
     });
 
-    console.log(e.target);
   }
 
   function handleAddJob() {
