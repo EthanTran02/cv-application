@@ -9,7 +9,7 @@ export default function Experience({ jobs, setJob }) {
         if (job.id !== id) {
           return job;
         } else {
-          return { ...prev, [name]: value };
+          return { ...job, [name.replace(id, '')]: value };
         }
       });
     });
@@ -37,7 +37,7 @@ export default function Experience({ jobs, setJob }) {
         {jobs.map((job) => {
           return (
             <Fragment key={job.id}>
-              <h3 className="company">Company {jobs.length}</h3>
+              <h3 className="company">Company {job.id}</h3>
               <div>
                 <label htmlFor="company-name">Company name: </label>
                 <input
