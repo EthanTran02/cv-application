@@ -1,17 +1,10 @@
 import { useState } from 'react';
 
-export default function Education() {
-  const [edu, setEdu] = useState({
-    school: '',
-    studyTittle: '',
-    studyDate: '',
-  });
-
+export default function Education({ edu, setEdu }) {
   function handleInput(e) {
     const { name, value } = e.target;
     setEdu((prev) => ({ ...prev, [name]: value }));
   }
-
   return (
     <div className="education">
       <h1>Education</h1>

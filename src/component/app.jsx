@@ -5,6 +5,18 @@ import Experience from './experience';
 
 export default function App() {
   const [info, setInfo] = useState({ name: '', email: '', phone: '' });
+  const [edu, setEdu] = useState({
+    school: '',
+    studyTittle: '',
+    studyDate: '',
+  });
+  const [job, setJob] = useState({
+    companyName: '',
+    positionTitle: '',
+    responsibilities: '',
+    dateStart: '',
+    dateEnd: '',
+  });
 
   const [state, setState] = useState('edit');
 
@@ -12,13 +24,17 @@ export default function App() {
     return (
       <>
         <Infomation info={info} setInfo={setInfo} />
-        <Education />
-        <Experience />
+        <Education edu={edu} setEdu={setEdu} />
+        <Experience job={job} setJob={setJob} />
         <button onClick={() => setState('display')}>Submit</button>
       </>
     );
   } else if (state === 'display') {
-    <h1></h1>;
-    return <button onClick={() => setState('edit')}>Edit</button>;
+    return (
+      <>
+        <h1>{info.name}</h1>
+        <button onClick={() => setState('edit')}>Edit</button>
+      </>
+    );
   }
 }

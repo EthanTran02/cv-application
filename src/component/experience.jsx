@@ -1,23 +1,20 @@
 import { useState } from 'react';
 
-export default function Experience() {
-  const [job, setJob] = useState({
-    companyName: '',
-    positionTitle: '',
-    responsibilities: '',
-    dateStart: '',
-    dateEnd: '',
-  });
-
+export default function Experience({ job, setJob }) {
   function handleInput(e) {
     const { name, value } = e.target;
     setJob((prev) => ({ ...prev, [name]: value }));
+  }
+
+  function handleClick() {
+    return <Experience />;
   }
 
   return (
     <div className="experience">
       <h1>Experience</h1>
 
+      <h3 className="company">Company 1</h3>
       <div>
         <label htmlFor="company-name">Company name: </label>
         <input
@@ -72,6 +69,10 @@ export default function Experience() {
           name="dateEnd"
         />
       </div>
+
+      <button className="add-btn" onClick={handleClick}>
+        +
+      </button>
     </div>
   );
 }

@@ -94,7 +94,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 8px 0;
+  margin: 4px 0;
   width: 350px;
 }
 
@@ -104,7 +104,7 @@ body {
   width: 65%;
 }
 
-button {
+#root > button {
   margin-top: 32px;
   padding: 12px 24px;
   color: white;
@@ -114,7 +114,20 @@ button {
   border: none;
 }
 
-button:hover {
+#root > button:hover {
   background-color: rgba(21, 53, 136, 0.79);
   cursor: pointer;
+}
+
+.company {
+  margin-top: 12px;
+}
+
+.add-btn {
+  background-color: transparent;
+  color: blue;
+  font-size: 32px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
 }
