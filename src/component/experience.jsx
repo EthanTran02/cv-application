@@ -1,78 +1,101 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 
-export default function Experience({ job, setJob }) {
-  function handleInput(e) {
+export default function Experience({ jobs, setJob }) {
+  function handleInput(e, id) {
     const { name, value } = e.target;
-    setJob((prev) => ({ ...prev, [name]: value }));
+
+    setJob((prev) => {
+      return prev.map((job) => {
+        if (job.id !== id) {
+          return job;
+        } else {
+          return { ...prev, [name]: value };
+        }
+      });
+    });
+
+    console.log(e.target);
   }
 
-  function handleClick() {
-    return <Experience />;
+  function handleAddJob() {
+    let newJob = {
+      id: jobs.length + 1,
+      companyName: '',
+      positionTitle: '',
+      responsibilities: '',
+      dateStart: '',
+      dateEnd: '',
+    };
+    setJob([...jobs, newJob]);
   }
 
   return (
-    <div className="experience">
-      <h1>Experience</h1>
+    <>
+      <div className="experience">
+        <h1>Experience</h1>
 
-      <h3 className="company">Company 1</h3>
-      <div>
-        <label htmlFor="company-name">Company name: </label>
-        <input
-          type="text"
-          id="company-name"
-          value={job.companyName}
-          onChange={handleInput}
-          name="companyName"
-        />
+        {jobs.map((job) => {
+          return (
+            <Fragment key={job.id}>
+              <h3 className="company">Company {jobs.length}</h3>
+              <div>
+                <label htmlFor="company-name">Company name: </label>
+                <input
+                  type="text"
+                  id="company-name"
+                  value={job.companyName}
+                  onChange={(e) => handleInput(e, job.id)}
+                  name={'companyName' + job.id}
+                />
+              </div>
+              <div>
+                <label htmlFor="position-title">Position title: </label>
+                <input
+                  type="text"
+                  id="position-title"
+                  value={job.positionTitle}
+                  onChange={(e) => handleInput(e, job.id)}
+                  name={'positionTitle' + job.id}
+                />
+              </div>
+              <div>
+                <label htmlFor="responsibilities">Responsibilities: </label>
+                <input
+                  type="text"
+                  id="responsibilities"
+                  value={job.responsibilities}
+                  onChange={(e) => handleInput(e, job.id)}
+                  name={'responsibilities' + job.id}
+                />
+              </div>
+              <div>
+                <label htmlFor="dateStart">From: </label>
+                <input
+                  type="date"
+                  id="dateStart"
+                  value={job.dateStart}
+                  onChange={(e) => handleInput(e, job.id)}
+                  name={'dateStart' + job.id}
+                />
+              </div>
+              <div>
+                <label htmlFor="dateEnd">To: </label>
+                <input
+                  type="date"
+                  id="dateEnd"
+                  value={job.dateEnd}
+                  onChange={(e) => handleInput(e, job.id)}
+                  name={'dateEnd' + job.id}
+                />
+              </div>
+            </Fragment>
+          );
+        })}
       </div>
 
-      <div>
-        <label htmlFor="position-title">Position title: </label>
-        <input
-          type="text"
-          id="position-title"
-          value={job.positionTitle}
-          onChange={handleInput}
-          name="positionTitle"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="responsibilities">Responsibilities: </label>
-        <input
-          type="text"
-          id="responsibilities"
-          value={job.responsibilities}
-          onChange={handleInput}
-          name="responsibilities"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="dateStart">From: </label>
-        <input
-          type="date"
-          id="dateStart"
-          value={job.dateStart}
-          onChange={handleInput}
-          name="dateStart"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="dateEnd">To: </label>
-        <input
-          type="date"
-          id="dateEnd"
-          value={job.dateEnd}
-          onChange={handleInput}
-          name="dateEnd"
-        />
-      </div>
-
-      <button className="add-btn" onClick={handleClick}>
+      <button className="add-btn" onClick={handleAddJob}>
         +
       </button>
-    </div>
+    </>
   );
 }

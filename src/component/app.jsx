@@ -10,13 +10,16 @@ export default function App() {
     studyTittle: '',
     studyDate: '',
   });
-  const [job, setJob] = useState({
-    companyName: '',
-    positionTitle: '',
-    responsibilities: '',
-    dateStart: '',
-    dateEnd: '',
-  });
+  const [jobs, setJob] = useState([
+    {
+      id: 1,
+      companyName: '',
+      positionTitle: '',
+      responsibilities: '',
+      dateStart: '',
+      dateEnd: '',
+    },
+  ]);
 
   const [state, setState] = useState('edit');
 
@@ -25,15 +28,19 @@ export default function App() {
       <>
         <Infomation info={info} setInfo={setInfo} />
         <Education edu={edu} setEdu={setEdu} />
-        <Experience job={job} setJob={setJob} />
-        <button onClick={() => setState('display')}>Submit</button>
+        <Experience jobs={jobs} setJob={setJob} />
+        <button className="submit" onClick={() => setState('display')}>
+          Submit
+        </button>
       </>
     );
   } else if (state === 'display') {
     return (
       <>
         <h1>{info.name}</h1>
-        <button onClick={() => setState('edit')}>Edit</button>
+        <button className="submit" onClick={() => setState('edit')}>
+          Edit
+        </button>
       </>
     );
   }

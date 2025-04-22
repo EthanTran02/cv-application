@@ -104,7 +104,7 @@ body {
   width: 65%;
 }
 
-#root > button {
+.submit {
   margin-top: 32px;
   padding: 12px 24px;
   color: white;
@@ -114,7 +114,7 @@ body {
   border: none;
 }
 
-#root > button:hover {
+.submit:hover {
   background-color: rgba(21, 53, 136, 0.79);
   cursor: pointer;
 }
@@ -124,6 +124,7 @@ body {
 }
 
 .add-btn {
+  display: block;
   background-color: transparent;
   color: blue;
   font-size: 32px;
