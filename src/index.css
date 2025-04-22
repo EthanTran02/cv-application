@@ -1,5 +1,7 @@
 /* 1. Use a more-intuitive box-sizing model */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -23,18 +25,31 @@ body {
 }
 
 /* 6. Improve media defaults */
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
 /* 7. Inherit fonts for form controls */
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
 /* 8. Avoid text overflows */
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 
@@ -42,15 +57,64 @@ p, h1, h2, h3, h4, h5, h6 {
 p {
   text-wrap: pretty;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-wrap: balance;
 }
 
 /*
   10. Create a root stacking context
 */
-#root, #__next {
+#root,
+#__next {
   isolation: isolate;
 }
 
 /* ------------------------------------ */
+
+body {
+  padding: 30px;
+}
+
+.education {
+  margin-top: 32px;
+}
+
+.experience {
+  margin-top: 32px;
+}
+
+.infomation > div,
+.education > div,
+.experience > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 8px 0;
+  width: 350px;
+}
+
+.infomation > div > input,
+.education > div > input,
+.experience > div > input {
+  width: 65%;
+}
+
+button {
+  margin-top: 32px;
+  padding: 12px 24px;
+  color: white;
+  border-radius: 4px;
+  background-color: rgba(32, 83, 210, 0.79);
+  transition: 200ms ease-in-out;
+  border: none;
+}
+
+button:hover {
+  background-color: rgba(21, 53, 136, 0.79);
+  cursor: pointer;
+}

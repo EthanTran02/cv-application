@@ -14,8 +14,6 @@ export default function Experience() {
     setJob((prev) => ({ ...prev, [name]: value }));
   }
 
-  console.log(job);
-
   return (
     <div className="experience">
       <h1>Experience</h1>
@@ -69,7 +67,7 @@ export default function Experience() {
         <input
           type="date"
           id="dateEnd"
-          value={job.dateStart}
+          value={job.dateEnd}
           onChange={handleInput}
           name="dateEnd"
         />

@@ -1,15 +1,13 @@
 import { useState } from 'react';
 
-export default function Infomation() {
-  const [info, setInfo] = useState({ name: '', email: '', phone: '' });
-
+export default function Infomation({ info, setInfo }) {
   function handleInput(e) {
     const { name, value } = e.target;
     setInfo((prev) => ({ ...prev, [name]: value }));
   }
 
   return (
-    <div className="Info">
+    <div className="infomation">
       <h1>Infomation</h1>
 
       <div>
