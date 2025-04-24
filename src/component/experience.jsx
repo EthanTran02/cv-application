@@ -1,7 +1,6 @@
 import { Fragment, useState } from 'react';
 
 export default function Experience({ jobs, setJob }) {
-
   function handleInput(e, id) {
     const { name, value } = e.target;
 
@@ -14,7 +13,6 @@ export default function Experience({ jobs, setJob }) {
         }
       });
     });
-
   }
 
   function handleAddJob() {
@@ -60,7 +58,7 @@ export default function Experience({ jobs, setJob }) {
               </div>
               <div>
                 <label htmlFor="responsibilities">Responsibilities: </label>
-                <input
+                <textarea
                   type="text"
                   id="responsibilities"
                   value={job.responsibilities}

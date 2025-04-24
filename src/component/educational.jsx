@@ -15,11 +15,13 @@ export default function Education({ edus, setEdu }) {
     });
   }
 
+  console.log(edus);
+
   function handleAddEdu() {
     let newSchool = {
       id: edus.length + 1,
       school: '',
-      studyTittle: '',
+      studyTitle: '',
       studyDate: '',
     };
     setEdu([...edus, newSchool]);
@@ -33,7 +35,7 @@ export default function Education({ edus, setEdu }) {
         {edus.map((edu) => {
           return (
             <Fragment key={edu.id}>
-              <h3 className='shool'>School {edu.id}</h3>
+              <h3 className="shool">School {edu.id}</h3>
               <div>
                 <label htmlFor="school">School name: </label>
                 <input
@@ -50,9 +52,9 @@ export default function Education({ edus, setEdu }) {
                 <input
                   type="text"
                   id="studyTitle"
-                  value={edu.studyTittle}
+                  value={edu.studyTitle}
                   onChange={(e) => handleInput(e, edu.id)}
-                  name="studyTittle"
+                  name="studyTitle"
                 />
               </div>
 

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 export default function Infomation({ info, setInfo }) {
-  
   function handleInput(e) {
     const { name, value } = e.target;
     setInfo((prev) => ({ ...prev, [name]: value }));

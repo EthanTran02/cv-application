@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Infomation from './Infomation';
 import Education from './educational';
 import Experience from './experience';
+import '../index.css';
 
 export default function App() {
   const [info, setInfo] = useState({ name: '', email: '', phone: '' });
@@ -9,7 +10,7 @@ export default function App() {
     {
       id: 1,
       school: '',
-      studyTittle: '',
+      studyTitle: '',
       studyDate: '',
     },
   ]);
@@ -39,15 +40,28 @@ export default function App() {
     );
   } else if (state === 'display') {
     return (
-      <>
-        <h1>{info.name}</h1>
+      <div id="edit-section">
+
+        <header id="info">
+          <h1 id="edit-name">{info.name}</h1>
+          <p id="phone">{info.phone}</p>
+          <a href={'mailto:' + info.email} id="email">
+            {info.email}
+          </a>
+        </header>
+
+        <main>
+          <h2>Education </h2>
+          <p>{edus.studyTittle + ' ' + edus.school}</p>
+          <hr />
+        </main>
+
         <button className="submit" onClick={() => setState('edit')}>
           Edit
         </button>
-      </>
+      </div>
     );
   }
 }
-
 
 // Creating a Display state for the application
