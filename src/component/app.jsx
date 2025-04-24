@@ -28,69 +28,92 @@ export default function App() {
   const [state, setState] = useState('edit');
 
   function handleSubmit(e) {
-    // e.preventDefault();
+    e.preventDefault();
     setState('display');
   }
 
   if (state === 'edit') {
     return (
-      <form onSubmit={handleSubmit}>
-        <Infomation info={info} setInfo={setInfo} />
-        <Education edus={edus} setEdu={setEdu} />
-        <Experience jobs={jobs} setJob={setJob} />
-        <button className="submit" type="submit">
-          Submit
-        </button>
-      </form>
+      <div className="container">
+        <h1 className="app-title">Resume Builder</h1>
+        <form onSubmit={handleSubmit} className="form-container">
+          <Infomation info={info} setInfo={setInfo} />
+          <Education edus={edus} setEdu={setEdu} />
+          <Experience jobs={jobs} setJob={setJob} />
+          <button className="submit" type="submit">
+            Generate Resume
+          </button>
+        </form>
+      </div>
     );
   } else if (state === 'display') {
     return (
-      <div id="edit-section">
-        <header id="info">
-          <h1 id="edit-name">{info.name}</h1>
-          <p id="phone">{info.phone}</p>
-          <a href={'mailto:' + info.email} id="email">
-            {info.email}
-          </a>
-        </header>
-
-        <main>
-          <div id="edus">
-            <h2>Education </h2>
-            <hr />
-            {edus.map((edu) => {
-              return (
-                <div id="edu">
-                  <div className="shool-and-title">
-                    <p key={edu.id}>{edu.studyTitle + ' ' + edu.school}</p>
-                  </div>
-                  <p className="yearStudy">{edu.studyDate}</p>
-                </div>
-              );
-            })}
+      <div className="resume-container">
+        <div className="resume-header">
+          <h1 className="resume-name">{info.name}</h1>
+          <div className="resume-contact">
+            <p className="resume-phone">
+              <span className="icon">📞</span> {info.phone}
+            </p>
+            <a href={'mailto:' + info.email} className="resume-email">
+              <span className="icon">✉️</span> {info.email}
+            </a>
           </div>
+        </div>
 
-          <div id="experience">
-            <h2>Experience </h2>
-            <hr />
-            {jobs.map((job) => {
-              return (
-                <div id="job">
-                  <p id="role">{job.positionTitle}</p>
-                  <p>{job.companyName}</p>
-                  <p>{job.responsibilities}</p>
+        <main className="resume-content">
+          <section className="resume-section">
+            <h2 className="section-title">Education</h2>
+            <div className="section-underline"></div>
+            {edus.map((edu) => (
+              <div className="education-item" key={edu.id}>
+                <div className="education-main">
+                  <h3 className="education-degree">{edu.studyTitle}</h3>
+                  <p className="education-school">{edu.school}</p>
                 </div>
-              );
-            })}
-          </div>
+                <p className="education-date">{edu.studyDate}</p>
+              </div>
+            ))}
+          </section>
+
+          <section className="resume-section">
+            <h2 className="section-title">Experience</h2>
+            <div className="section-underline"></div>
+            {jobs.map((job) => (
+              <div className="job-item" key={job.id}>
+                <div className="job-header">
+                  <h3 className="job-title">{job.positionTitle}</h3>
+                  <p className="job-date">
+                    {job.dateStart && job.dateEnd
+                      ? `${new Date(job.dateStart).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'short',
+                        })} - ${new Date(job.dateEnd).toLocaleDateString(
+                          'en-US',
+                          {
+                            year: 'numeric',
+                            month: 'short',
+                          }
+                        )}`
+                      : ''}
+                  </p>
+                </div>
+                <p className="job-company">{job.companyName}</p>
+                <p className="job-description">{job.responsibilities}</p>
+              </div>
+            ))}
+          </section>
         </main>
 
-        <button className="submit" onClick={() => setState('edit')}>
-          Edit
-        </button>
+        <div className="actions">
+          <button className="edit-button" onClick={() => setState('edit')}>
+            Edit Resume
+          </button>
+          <button className="print-button" onClick={() => window.print()}>
+            Print / Save PDF
+          </button>
+        </div>
       </div>
     );
   }
 }
-
-// Creating a Display state for the application
