@@ -150,5 +150,19 @@ body {
 }
 
 main {
-  padding: 30px 60px; 
+  padding: 30px 60px;
+}
+
+#edu {
+  display: flex;
+  justify-content: space-between;
+}
+
+#job {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+#role {
+  font-weight: bold;
 }

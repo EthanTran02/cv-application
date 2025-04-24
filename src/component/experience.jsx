@@ -39,6 +39,7 @@ export default function Experience({ jobs, setJob }) {
               <div>
                 <label htmlFor="company-name">Company name: </label>
                 <input
+                  required
                   type="text"
                   id="company-name"
                   value={job.companyName}
@@ -49,6 +50,7 @@ export default function Experience({ jobs, setJob }) {
               <div>
                 <label htmlFor="position-title">Position title: </label>
                 <input
+                  required
                   type="text"
                   id="position-title"
                   value={job.positionTitle}
@@ -59,6 +61,7 @@ export default function Experience({ jobs, setJob }) {
               <div>
                 <label htmlFor="responsibilities">Responsibilities: </label>
                 <textarea
+                  required
                   type="text"
                   id="responsibilities"
                   value={job.responsibilities}
@@ -69,6 +72,7 @@ export default function Experience({ jobs, setJob }) {
               <div>
                 <label htmlFor="dateStart">From: </label>
                 <input
+                  required
                   type="date"
                   id="dateStart"
                   value={job.dateStart}
@@ -79,6 +83,7 @@ export default function Experience({ jobs, setJob }) {
               <div>
                 <label htmlFor="dateEnd">To: </label>
                 <input
+                  required
                   type="date"
                   id="dateEnd"
                   value={job.dateEnd}

@@ -13,6 +13,7 @@ export default function Infomation({ info, setInfo }) {
       <div>
         <label htmlFor="name">Name: </label>
         <input
+          required
           type="text"
           id="name"
           value={info.name}
@@ -24,6 +25,7 @@ export default function Infomation({ info, setInfo }) {
       <div>
         <label htmlFor="email">Email: </label>
         <input
+          required
           type="email"
           id="email"
           value={info.email}
@@ -35,6 +37,7 @@ export default function Infomation({ info, setInfo }) {
       <div>
         <label htmlFor="phone">Phone number: </label>
         <input
+          required
           type="tel"
           id="phone"
           value={info.phone}

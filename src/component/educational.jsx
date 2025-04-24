@@ -15,8 +15,6 @@ export default function Education({ edus, setEdu }) {
     });
   }
 
-  console.log(edus);
-
   function handleAddEdu() {
     let newSchool = {
       id: edus.length + 1,
@@ -39,6 +37,7 @@ export default function Education({ edus, setEdu }) {
               <div>
                 <label htmlFor="school">School name: </label>
                 <input
+                  required
                   type="text"
                   id="school"
                   value={edu.school}
@@ -50,6 +49,7 @@ export default function Education({ edus, setEdu }) {
               <div>
                 <label htmlFor="studyTitle">Title of study: </label>
                 <input
+                  required
                   type="text"
                   id="studyTitle"
                   value={edu.studyTitle}
@@ -61,6 +61,7 @@ export default function Education({ edus, setEdu }) {
               <div>
                 <label htmlFor="studyDate">Date of study: </label>
                 <input
+                  required
                   type="text"
                   id="studyDate"
                   value={edu.studyDate}
